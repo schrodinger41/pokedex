@@ -1,0 +1,71 @@
+/* =====Font===== */
+@import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  /* =====Colors===== */
+  --main-color: #f03d42;
+  --secondary-color: #2873b3;
+  --yellow: #f8d520;
+  --green: #2cb625;
+  --gray-bg: rgb(245, 245, 245);
+
+  --gradient-color: linear-gradient(
+    90deg,
+    hsl(48, 100%, 50%) 0%,
+    hsl(28, 100%, 54%, 100%)
+  );
+  --black-color: hsl(225, 15%, 6%);
+  --reflection-color: hsla(48, 30%, 95%, 0.3);
+  --body-color: hsl(48, 100%, 98%);
+
+  /* =====Typography===== */
+  --fs-h1: 40px;
+  --fs-h2: 34px;
+  --fs-h3: 25px;
+  --fs-p: 12px;
+
+  --main-font: "Poetsen One";
+  --secondary-font: "Inter";
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 34px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  padding-top: 80px;
+  /* padding-bottom:60px; */
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 520px) {
+  h2 {
+    font-size: 15px;
+  }
+}

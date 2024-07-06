@@ -1,0 +1,31 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  column-gap: 30px;
+}
+
+.footer-button {
+  font-family: "Poetsen One", sans-serif;
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  font-size: 30px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.footer-button:hover {
+  background-color: #f03d42;
+  color: white;
+}

@@ -1,0 +1,25 @@
+#header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: #f1f1f1;
+  z-index: 100;
+
+  .header-left {
+    background-image: url("../../images/header-top-left.svg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 135px;
+    width: 250px;
+  }
+  .header-right {
+    background-image: url("../../images/header-top-right.svg");
+    position: absolute;
+    height: 87px;
+    top: 0;
+    left: 250px;
+    right: 0;
+  }
+}

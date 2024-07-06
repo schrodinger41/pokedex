@@ -1,0 +1,49 @@
+/* card.css */
+.card {
+  width: 50%;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.name {
+  font-family: var(--main-font);
+}
+
+.id {
+  font-family: var(--secondary-font);
+  font-weight: 800;
+}
+
+@media screen and (max-width: 520px) {
+  .card {
+    width: 85%;
+  }
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Adjust this as necessary */
+  width: 100%;
+  font-family: var(--main-font);
+}
+
+.loading-container h1 {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 520px) {
+  .search-card {
+    width: 100%;
+  }
+}
