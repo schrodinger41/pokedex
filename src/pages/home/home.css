@@ -12,6 +12,10 @@
   left: 0;
 }
 
+.pokedex-image {
+  width: 100%; /* Adjust width as needed */
+  max-width: 400px;
+}
 .container {
   display: flex;
   flex-direction: column;

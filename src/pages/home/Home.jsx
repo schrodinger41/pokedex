@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/header/Header";
+import Text from "../../images/pokedextextnobg.png";
 import Footer from "../../components/footer/Footer";
 import { Outlet, Link } from "react-router-dom";
 import "./home.css";
@@ -10,7 +11,7 @@ const Home = () => {
       <Header />
       <div className="login-page">
         <div class="container">
-          <h1 className="title">Jit's Pokedex</h1>
+          <img src={Text} alt="Pokedex" className="pokedex-image" />
           <Link to="/pokemon">
             <div className="button_container">
               <a class="button">
