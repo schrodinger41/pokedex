@@ -35,9 +35,9 @@
 }
 
 .card {
-  flex: 0 0 auto; /* Ensure cards don't stretch */
+  flex: 0 0 auto;
   scroll-snap-align: start;
-  margin-bottom: 20px; /* Space between cards */
+  margin-bottom: 20px;
 }
 
 .btn-group {

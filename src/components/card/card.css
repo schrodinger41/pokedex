@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Adjust this as necessary */
+  height: 100vh;
   width: 100%;
   font-family: var(--main-font);
 }
