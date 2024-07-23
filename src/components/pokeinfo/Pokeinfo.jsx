@@ -39,7 +39,7 @@ const Pokeinfo = ({ data }) => {
     stats.attack || 0,
     stats.defense || 0,
     stats.speed || 0,
-    (data.height / 10) * 100 || 0, // Convert height to cm
+    (data.height / 10) * 100 || 0,
     data.weight / 10 || 0,
   ];
 
@@ -48,7 +48,7 @@ const Pokeinfo = ({ data }) => {
       <div className="pokeinfo-card">
         <div className="pokeinfo-header">
           <img
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`}
+            src={data.sprites.front_default}
             alt={data.name}
             className="pokeinfo-image"
           />
@@ -58,7 +58,7 @@ const Pokeinfo = ({ data }) => {
               <strong>Height:</strong> {(data.height / 10) * 100} cm
             </h3>
             <h3>
-              <strong>Weight:</strong> {data.weight / 10} kg
+              <strong>Weight:</strong> {data.weight / 10}
             </h3>
           </div>
         </div>
