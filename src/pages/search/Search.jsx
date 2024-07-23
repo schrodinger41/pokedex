@@ -19,7 +19,7 @@ const Search = () => {
       const res = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${searchInput.toLowerCase()}`
       );
-      setSearchResults([res.data]); // Store results in an array
+      setSearchResults([res.data]);
     } catch (error) {
       console.error("Error fetching Pokémon data:", error);
       setSearchResults([]);
@@ -45,7 +45,7 @@ const Search = () => {
             className="search-input"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-            onKeyDown={handleKeyDown} // Add this line
+            onKeyDown={handleKeyDown}
           />
           <button className="search-button" onClick={handleSearch}>
             <FaSearch />
