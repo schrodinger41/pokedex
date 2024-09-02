@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./search.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
@@ -19,23 +19,31 @@ const Search = () => {
     setLoading(true);
     setSearched(true);
     try {
-      // Fetch all Pokémon species from PokéAPI and filter based on input
-      const res = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon?limit=1000`
-      );
-      const filteredResults = res.data.results.filter((pokemon) =>
-        pokemon.name.toLowerCase().startsWith(searchInput.toLowerCase())
-      );
+      if (!isNaN(searchInput)) {
+        // If the search input is a number, search by ID
+        const res = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${searchInput}`
+        );
+        setSearchResults([res.data]);
+      } else {
+        // Fetch all Pokémon species from PokéAPI and filter based on input
+        const res = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon?limit=1000`
+        );
+        const filteredResults = res.data.results.filter((pokemon) =>
+          pokemon.name.toLowerCase().startsWith(searchInput.toLowerCase())
+        );
 
-      // Fetch detailed data for each filtered Pokémon
-      const detailedResults = await Promise.all(
-        filteredResults.map(async (pokemon) => {
-          const detailRes = await axios.get(pokemon.url);
-          return detailRes.data;
-        })
-      );
+        // Fetch detailed data for each filtered Pokémon
+        const detailedResults = await Promise.all(
+          filteredResults.map(async (pokemon) => {
+            const detailRes = await axios.get(pokemon.url);
+            return detailRes.data;
+          })
+        );
 
-      setSearchResults(detailedResults);
+        setSearchResults(detailedResults);
+      }
     } catch (error) {
       console.error("Error fetching Pokémon data:", error);
       setSearchResults([]);
@@ -57,7 +65,7 @@ const Search = () => {
         <div className="search-bar">
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="Search by name or ID..."
             className="search-input"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}

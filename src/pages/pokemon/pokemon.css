@@ -1,5 +1,9 @@
 .pokemon {
-  background-color: var(--gray-bg);
+  background-image: url("../../images/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 100%;
   left: 0;
   right: 0;
@@ -22,7 +26,6 @@
   scroll-snap-type: y mandatory;
   -webkit-overflow-scrolling: touch;
   padding: 20px;
-  background-color: var(--gray-bg);
 }
 
 .scroll-container::-webkit-scrollbar {
