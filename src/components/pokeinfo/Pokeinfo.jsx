@@ -78,8 +78,8 @@ const Pokeinfo = ({ data }) => {
     stats.attack || 0,
     stats.defense || 0,
     stats.speed || 0,
-    (data.height / 10) * 100 || 0,
-    data.weight / 10 || 0,
+    (data.height / 10).toFixed(2) || 0,
+    (data.weight / 10).toFixed(2) || 0,
   ];
 
   return (
@@ -106,10 +106,10 @@ const Pokeinfo = ({ data }) => {
               <h1>{data.name}</h1>
             </div>
             <h3>
-              <strong>Height:</strong> {(data.height / 10) * 100} cm
+              <strong>Height:</strong> {(data.height / 10).toFixed(2)} m
             </h3>
             <h3>
-              <strong>Weight:</strong> {data.weight / 10} kg
+              <strong>Weight:</strong> {(data.weight / 10).toFixed(2)} kg
             </h3>
           </div>
         </div>
@@ -139,12 +139,16 @@ const Pokeinfo = ({ data }) => {
             <div className="stat p-2">
               <div className="stat-icon w-8"></div>
               <div className="stat-attr w-24">Height</div>
-              <div className="stat-value">{(data.height / 10) * 100} cm</div>
+              <div className="stat-value">
+                {(data.height / 10).toFixed(2)} m
+              </div>
             </div>
             <div className="stat p-2">
               <div className="stat-icon w-8"></div>
               <div className="stat-attr w-24">Weight</div>
-              <div className="stat-value">{data.weight / 10} kg</div>
+              <div className="stat-value">
+                {(data.weight / 10).toFixed(2)} kg
+              </div>
             </div>
           </div>
           <div className="stat-graph">

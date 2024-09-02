@@ -46,11 +46,15 @@
 
 .pokeinfo-details h1 {
   margin: 0 0 0.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .pokeinfo-details h3 {
   margin: 0.25rem 0;
   font-family: var(--secondary-font);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .base-stat-container {
@@ -108,22 +112,22 @@
 .pokeinfo-name-container {
   display: flex;
   align-items: center;
-  column-gap: 0.5rem; 
+  column-gap: 0.5rem;
 }
 
 .pokeinfo-types {
   display: flex;
-  gap: 0.5rem; 
+  gap: 0.5rem;
 }
 
 .type-icon {
-  width: 2rem; 
-  height: 2rem; 
+  width: 2rem;
+  height: 2rem;
 }
 
 .pokeinfo-details h1 {
   margin: 0;
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
 }
 
 .pokeinfo-details h3 {
@@ -160,8 +164,20 @@
 @media (max-width: 520px) {
   .pokeinfo-card {
     margin-top: 450px;
+    max-width: 90%;
   }
   .pokeinfo-header {
-    column-gap: 0.5rem;
+    column-gap: 0rem;
+  }
+  .pokeinfo-image {
+    width: 80px;
+    height: auto;
+  }
+
+  .pokeinfo-card {
+    margin-top: 360px;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 90px;
   }
 }
