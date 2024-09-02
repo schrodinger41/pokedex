@@ -105,6 +105,32 @@
   border-radius: 8px;
 }
 
+.pokeinfo-name-container {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem; /* Adjust spacing between type icons and name */
+}
+
+.pokeinfo-types {
+  display: flex;
+  gap: 0.5rem; /* Adjust spacing between icons */
+}
+
+.type-icon {
+  width: 2rem; /* Adjust the size as needed */
+  height: 2rem; /* Adjust the size as needed */
+}
+
+.pokeinfo-details h1 {
+  margin: 0;
+  font-size: 1.5rem; /* Adjust size if needed */
+}
+
+.pokeinfo-details h3 {
+  margin: 0.25rem 0;
+  font-family: var(--secondary-font);
+}
+
 @media (max-width: 768px) {
   .base-stat-container {
     flex-direction: column;

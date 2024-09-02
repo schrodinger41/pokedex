@@ -11,6 +11,46 @@ import {
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
 
+import fireIcon from "../../../public/type/fire.svg";
+import waterIcon from "../../../public/type/water.svg";
+import bugIcon from "../../../public/type/bug.svg";
+import darkIcon from "../../../public/type/dark.svg";
+import dragonIcon from "../../../public/type/dragon.svg";
+import electricIcon from "../../../public/type/electric.svg";
+import fairyIcon from "../../../public/type/fairy.svg";
+import fightingIcon from "../../../public/type/fighting.svg";
+import flyingIcon from "../../../public/type/flying.svg";
+import ghostIcon from "../../../public/type/ghost.svg";
+import grassIcon from "../../../public/type/grass.svg";
+import groundIcon from "../../../public/type/ground.svg";
+import iceIcon from "../../../public/type/ice.svg";
+import normalIcon from "../../../public/type/normal.svg";
+import poisonIcon from "../../../public/type/poison.svg";
+import psychicIcon from "../../../public/type/psychic.svg";
+import rockIcon from "../../../public/type/rock.svg";
+import steelIcon from "../../../public/type/steel.svg";
+
+const typeIcons = {
+  fire: fireIcon,
+  water: waterIcon,
+  bug: bugIcon,
+  dark: darkIcon,
+  dragon: dragonIcon,
+  electric: electricIcon,
+  fairy: fairyIcon,
+  fighting: fightingIcon,
+  flying: flyingIcon,
+  ghost: ghostIcon,
+  grass: grassIcon,
+  ground: groundIcon,
+  ice: iceIcon,
+  normal: normalIcon,
+  poison: poisonIcon,
+  psychic: psychicIcon,
+  rock: rockIcon,
+  steel: steelIcon,
+};
+
 ChartJS.register(
   RadialLinearScale,
   PointElement,
@@ -53,7 +93,19 @@ const Pokeinfo = ({ data }) => {
             className="pokeinfo-image"
           />
           <div className="pokeinfo-details">
-            <h1>{data.name}</h1>
+            <div className="pokeinfo-name-container">
+              <div className="pokeinfo-types">
+                {data.types.map((typeInfo, index) => (
+                  <img
+                    key={index}
+                    src={typeIcons[typeInfo.type.name]} // Make sure to import and use the typeIcons
+                    alt={typeInfo.type.name}
+                    className="type-icon"
+                  />
+                ))}
+              </div>
+              <h1>{data.name}</h1>
+            </div>
             <h3>
               <strong>Height:</strong> {(data.height / 10) * 100} cm
             </h3>

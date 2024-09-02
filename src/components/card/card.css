@@ -18,6 +18,18 @@
   font-family: var(--main-font);
 }
 
+.types {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.type-icon {
+  width: auto;
+  height: 3rem;
+}
+
 .id {
   font-family: var(--secondary-font);
   font-weight: 800;
@@ -25,7 +37,10 @@
 
 @media screen and (max-width: 520px) {
   .card {
-    width: 85%;
+    width: 95%;
+  }
+  .type-icon {
+    height: 2rem;
   }
 }
 
