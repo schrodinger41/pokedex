@@ -58,7 +58,7 @@ const Pokeinfo = ({ data }) => {
               <strong>Height:</strong> {(data.height / 10) * 100} cm
             </h3>
             <h3>
-              <strong>Weight:</strong> {data.weight / 10}
+              <strong>Weight:</strong> {data.weight / 10} kg
             </h3>
           </div>
         </div>
