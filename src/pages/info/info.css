@@ -1,5 +1,9 @@
 .info {
-  background-color: var(--gray-bg);
+  background-image: url("../../images/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100vh;
   left: 0;
   right: 0;
