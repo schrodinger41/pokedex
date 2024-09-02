@@ -26,10 +26,10 @@ const Card = ({ pokemon, loading, setLoading }) => {
           <Loading />
         </div>
       ) : (
-        pokemon.map((item) => (
+        pokemon.map((item, index) => (
           <div
             className="card"
-            key={item.id}
+            key={`${item.id}-${item.name}-${index}`} // Ensure unique keys
             onClick={() => handleCardClick(item)}
           >
             <h2 className="id">{item.id}.</h2>

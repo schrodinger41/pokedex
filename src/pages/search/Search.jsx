@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./search.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
@@ -19,10 +19,23 @@ const Search = () => {
     setLoading(true);
     setSearched(true);
     try {
+      // Fetch all Pokémon species from PokéAPI and filter based on input
       const res = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${searchInput.toLowerCase()}`
+        `https://pokeapi.co/api/v2/pokemon?limit=1000`
       );
-      setSearchResults([res.data]);
+      const filteredResults = res.data.results.filter((pokemon) =>
+        pokemon.name.toLowerCase().startsWith(searchInput.toLowerCase())
+      );
+
+      // Fetch detailed data for each filtered Pokémon
+      const detailedResults = await Promise.all(
+        filteredResults.map(async (pokemon) => {
+          const detailRes = await axios.get(pokemon.url);
+          return detailRes.data;
+        })
+      );
+
+      setSearchResults(detailedResults);
     } catch (error) {
       console.error("Error fetching Pokémon data:", error);
       setSearchResults([]);

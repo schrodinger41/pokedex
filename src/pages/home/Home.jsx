@@ -10,30 +10,42 @@ const Home = () => {
     <main>
       <Header />
       <div className="login-page">
-        <div class="container">
+        <div className="container">
           <img src={Text} alt="Pokedex" className="pokedex-image" />
           <Link to="/pokemon">
             <div className="button_container">
-              <a class="button">
-                <div class="button__content">
-                  <span class="button__text">Open Pokedex</span>
+              <a className="button">
+                <div className="button__content">
+                  <span className="button__text">Open Pokedex</span>
 
-                  <div class="button__reflection-1"></div>
-                  <div class="button__reflection-2"></div>
+                  <div className="button__reflection-1"></div>
+                  <div className="button__reflection-2"></div>
                 </div>
 
-                <img src="/button/star.png" alt="" class="button__star-1" />
-                <img src="/button/star.png" alt="" class="button__star-2" />
-                <img src="/button/circle.png" alt="" class="button__circle-1" />
-                <img src="/button/circle.png" alt="" class="button__circle-2" />
-                <img src="/button/diamond.png" alt="" class="button__diamond" />
+                <img src="/button/star.png" alt="" className="button__star-1" />
+                <img src="/button/star.png" alt="" className="button__star-2" />
+                <img
+                  src="/button/circle.png"
+                  alt=""
+                  className="button__circle-1"
+                />
+                <img
+                  src="/button/circle.png"
+                  alt=""
+                  className="button__circle-2"
+                />
+                <img
+                  src="/button/diamond.png"
+                  alt=""
+                  className="button__diamond"
+                />
                 <img
                   src="/button/triangle.png"
                   alt=""
-                  class="button__triangle"
+                  className="button__triangle"
                 />
 
-                <div class="button__shadow"></div>
+                <div className="button__shadow"></div>
               </a>
             </div>
           </Link>
