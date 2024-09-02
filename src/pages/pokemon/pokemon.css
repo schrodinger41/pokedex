@@ -67,6 +67,20 @@
   background-color: #a33347;
 }
 
+.filter-container {
+  margin: 20px;
+}
+
+.filter-container select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--main-color);
+  background-color: white;
+  color: var(--main-color);
+  cursor: pointer;
+}
+
 @media screen and (max-width: 520px) {
   .pokemon {
     padding-top: 150px;

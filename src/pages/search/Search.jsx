@@ -20,13 +20,11 @@ const Search = () => {
     setSearched(true);
     try {
       if (!isNaN(searchInput)) {
-        // If the search input is a number, search by ID
         const res = await axios.get(
           `https://pokeapi.co/api/v2/pokemon/${searchInput}`
         );
         setSearchResults([res.data]);
       } else {
-        // Fetch all Pokémon species from PokéAPI and filter based on input
         const res = await axios.get(
           `https://pokeapi.co/api/v2/pokemon?limit=1000`
         );
@@ -34,7 +32,6 @@ const Search = () => {
           pokemon.name.toLowerCase().startsWith(searchInput.toLowerCase())
         );
 
-        // Fetch detailed data for each filtered Pokémon
         const detailedResults = await Promise.all(
           filteredResults.map(async (pokemon) => {
             const detailRes = await axios.get(pokemon.url);

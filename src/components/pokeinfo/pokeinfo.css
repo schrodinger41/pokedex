@@ -108,22 +108,22 @@
 .pokeinfo-name-container {
   display: flex;
   align-items: center;
-  column-gap: 0.5rem; /* Adjust spacing between type icons and name */
+  column-gap: 0.5rem; 
 }
 
 .pokeinfo-types {
   display: flex;
-  gap: 0.5rem; /* Adjust spacing between icons */
+  gap: 0.5rem; 
 }
 
 .type-icon {
-  width: 2rem; /* Adjust the size as needed */
-  height: 2rem; /* Adjust the size as needed */
+  width: 2rem; 
+  height: 2rem; 
 }
 
 .pokeinfo-details h1 {
   margin: 0;
-  font-size: 1.5rem; /* Adjust size if needed */
+  font-size: 1.5rem; 
 }
 
 .pokeinfo-details h3 {

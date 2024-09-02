@@ -65,7 +65,6 @@ const Pokeinfo = ({ data }) => {
     return "No data available";
   }
 
-  // Prepare data for the radar chart
   const stats = data.stats.reduce((acc, stat) => {
     if (["hp", "attack", "defense", "speed"].includes(stat.stat.name)) {
       acc[stat.stat.name] = stat.base_stat;
@@ -98,7 +97,7 @@ const Pokeinfo = ({ data }) => {
                 {data.types.map((typeInfo, index) => (
                   <img
                     key={index}
-                    src={typeIcons[typeInfo.type.name]} // Make sure to import and use the typeIcons
+                    src={typeIcons[typeInfo.type.name]}
                     alt={typeInfo.type.name}
                     className="type-icon"
                   />
