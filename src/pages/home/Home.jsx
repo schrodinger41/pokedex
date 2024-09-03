@@ -34,7 +34,7 @@ const Home = () => {
       default:
         return "An unexpected error occurred. Please try again.";
     }
-  };
+  };//sdgfs
 
   const handleAuth = async () => {
     if (!email || !password || (isRegistering && !confirmPassword)) {
