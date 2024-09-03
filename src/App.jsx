@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./config/firebase"; // Ensure this is the correct path to your firebase.js
+import { auth } from "./config/firebase";
 import Home from "./pages/home/Home";
 import Pokemon from "./pages/pokemon/Pokemon";
 import Info from "./pages/info/Info";
@@ -10,7 +10,7 @@ import "./App.css";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
-  const [loading, setLoading] = useState(true); // Add a loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -19,14 +19,14 @@ function App() {
       } else {
         setIsAuth(false);
       }
-      setLoading(false); // Stop loading once we have the auth state
+      setLoading(false);
     });
 
-    return () => unsubscribe(); // Clean up subscription on unmount
+    return () => unsubscribe();
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>; // Render a loading indicator while waiting for auth state
+    return <div>Loading...</div>;
   }
 
   return (
