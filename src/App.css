@@ -6,7 +6,7 @@
   /* =====Colors===== */
   --main-color: #f03d42;
   --secondary-color: #2873b3;
-  --yellow: #f8d520;
+  --yellow: hsl(48, 93%, 60%);
   --green: #2cb625;
   --gray-bg: rgb(245, 245, 245);
 

@@ -1,4 +1,6 @@
 import React from "react";
+import { auth } from "../../config/firebase";
+import { signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { GrHomeRounded } from "react-icons/gr";
 import { MdOutlineCatchingPokemon } from "react-icons/md";
@@ -6,9 +8,18 @@ import { IoSearch } from "react-icons/io5";
 import "./footer.css";
 
 const Footer = () => {
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
   return (
     <div className="footer">
-      <Link to="/" className="footer-button">
+      <Link onClick={handleLogout} className="footer-button">
         <GrHomeRounded />
       </Link>
       <Link to="/search" className="footer-button">

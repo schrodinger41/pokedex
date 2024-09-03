@@ -12,32 +12,103 @@
   left: 0;
 }
 
-.pokedex-image {
-  width: 100%;
-  max-width: 400px;
-}
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: 400px;
 }
 
-.title {
+.pokedex-image {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form-container {
+  width: 100%;
+}
+
+.login-form-container h1 {
   font-family: var(--main-font);
-  margin-bottom: 20px;
+  padding-bottom: 0.5rem;
+  color: white;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  border: 3px solid black;
+  font-size: 16px;
+  font-family: var(--secondary-font);
+  box-sizing: border-box;
+}
+
+.signup-text {
+  font-size: 14px;
+  font-family: var(--secondary-font);
+  font-weight: 700;
+  color: white;
+}
+
+.error-message {
+  color: var(--yellow);
+  font-family: var(--secondary-font);
+  padding-bottom: 0.5rem;
+  font-weight: 900;
+}
+
+.signup-text a {
+  color: var(--yellow);
+  text-decoration: none;
+}
+
+.link-transfer-mode {
   color: var(--gradient-color);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.google-sign-in-button {
+  width: 100%;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 3px solid black;
+  padding: 10px;
+  border-radius: 20px;
+  font-family: var(--secondary-font);
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+.google-sign-in-button img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.signInButton {
+  width: 100%;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .button_container {
-  margin-inline: 1.5rem;
-  display: grid;
-  place-items: center;
+  width: 100%;
 }
 
 .button {
   position: relative;
   transition: transform 0.4s;
+  width: 100%;
+  display: block;
 }
 
 .button__content {
@@ -49,6 +120,7 @@
   color: var(--black-color);
   display: flex;
   align-items: center;
+  justify-content: center;
   column-gap: 0.5rem;
   overflow: hidden;
 }
@@ -176,10 +248,6 @@
   left: -70%;
 }
 
-.button:hover {
-  transform: rotate(-4deg) scale(1.1);
-}
-
 .button:hover img {
   opacity: 1;
 }
@@ -225,5 +293,14 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+  }
+
+  .container {
+    max-width: 300px;
+    padding: 15px;
+  }
+
+  .pokedex-image {
+    max-width: 200px;
   }
 }
