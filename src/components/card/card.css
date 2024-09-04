@@ -12,6 +12,7 @@
   margin: 0 auto;
   margin-bottom: 20px;
   text-transform: capitalize;
+  cursor: pointer;
 }
 
 .name {

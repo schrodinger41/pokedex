@@ -2,7 +2,7 @@ import React from "react";
 import { auth } from "../../config/firebase";
 import { signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
-import { GrHomeRounded } from "react-icons/gr";
+import { RiLogoutBoxLine } from "react-icons/ri";
 import { MdOutlineCatchingPokemon } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
 import "./footer.css";
@@ -20,7 +20,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <Link onClick={handleLogout} className="footer-button">
-        <GrHomeRounded />
+        <RiLogoutBoxLine />
       </Link>
       <Link to="/search" className="footer-button">
         <IoSearch />
