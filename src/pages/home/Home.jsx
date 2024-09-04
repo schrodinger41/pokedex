@@ -36,9 +36,25 @@ const Home = () => {
     }
   };
 
+  const validatePassword = (password) => {
+    if (password.length < 8) {
+      return "Password must be at least 8 characters.";
+    }
+    if (password.length > 20) {
+      return "Password must be no longer than 20 characters.";
+    }
+    return null;
+  };
+
   const handleAuth = async () => {
     if (!email || !password || (isRegistering && !confirmPassword)) {
       setError("Please fill in all fields.");
+      return;
+    }
+
+    const passwordError = validatePassword(password);
+    if (passwordError) {
+      setError(passwordError);
       return;
     }
 
