@@ -4,6 +4,7 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import Card from "../../components/card/Card";
 import axios from "axios";
+import Loader from "../../components/loader/Loader";
 
 const Pokemon = () => {
   const [pokeData, setPokeData] = useState([]);
@@ -11,7 +12,6 @@ const Pokemon = () => {
   const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/");
   const [nextUrl, setNextUrl] = useState();
   const [prevUrl, setPrevUrl] = useState();
-  const [pokeDex, setPokeDex] = useState();
 
   const pokeFun = async () => {
     setLoading(true);
@@ -23,18 +23,13 @@ const Pokemon = () => {
   };
 
   const getPokemon = async (res) => {
-    res.map(async (item) => {
-      const result = await axios.get(item.url);
-      setPokeData((state) => {
-        state = [...state, result.data];
-        state.sort((a, b) => (a.id > b.id ? 1 : -1));
-        return state;
-      });
-    });
-  };
-
-  const handleInfo = (poke) => {
-    navigate("/info", { state: { data: poke } });
+    const data = await Promise.all(
+      res.map(async (item) => {
+        const result = await axios.get(item.url);
+        return result.data;
+      })
+    );
+    setPokeData(data.sort((a, b) => (a.id > b.id ? 1 : -1)));
   };
 
   useEffect(() => {
@@ -44,13 +39,15 @@ const Pokemon = () => {
   return (
     <div className="pokemon">
       <Header />
-      <div className="scroll-container">
-        <Card
-          pokemon={pokeData}
-          loading={loading}
-          infoPokemon={(poke) => setPokeDex(poke)}
-        />
-      </div>
+      {loading ? (
+        <div className="loading-container">
+          <Loader />
+        </div>
+      ) : (
+        <div className="scroll-container">
+          <Card pokemon={pokeData} loading={loading} setLoading={setLoading} />
+        </div>
+      )}
       <div className="btn-group">
         {prevUrl && (
           <button
@@ -62,7 +59,6 @@ const Pokemon = () => {
             Previous
           </button>
         )}
-
         {nextUrl && (
           <button
             onClick={() => {
