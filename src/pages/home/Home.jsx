@@ -32,7 +32,7 @@ const Home = () => {
       case "auth/weak-password":
         return "Password should be at least 6 characters.";
       default:
-        return "An unexpected error occurred. Please try again.";
+        return "The account may not exist, or the credentials might be incorrect.";
     }
   };
 
@@ -45,8 +45,19 @@ const Home = () => {
     }
     return null;
   };
+  const MAX_ATTEMPTS = 3;
+  const LOCKOUT_TIME = 5 * 60 * 1000; // 5 minutes in milliseconds
 
   const handleAuth = async () => {
+    const attempts = parseInt(localStorage.getItem("loginAttempts")) || 0;
+    const lockoutEnd = parseInt(localStorage.getItem("lockoutEnd")) || 0;
+    const now = Date.now();
+
+    if (lockoutEnd > now) {
+      setError("You are locked out. Please try again later.");
+      return;
+    }
+
     if (!email || !password || (isRegistering && !confirmPassword)) {
       setError("Please fill in all fields.");
       return;
@@ -58,23 +69,26 @@ const Home = () => {
       return;
     }
 
-    if (isRegistering) {
-      if (password !== confirmPassword) {
-        setError("Passwords do not match.");
-        return;
-      }
-      try {
+    try {
+      if (isRegistering) {
+        if (password !== confirmPassword) {
+          setError("Passwords do not match.");
+          return;
+        }
         await createUserWithEmailAndPassword(auth, email, password);
-        window.location.assign("/pokemon");
-      } catch (error) {
-        setError(getErrorMessage(error.code));
-      }
-    } else {
-      try {
+      } else {
         await signInWithEmailAndPassword(auth, email, password);
-        window.location.assign("/pokemon");
-      } catch (error) {
-        setError(getErrorMessage(error.code));
+      }
+      localStorage.setItem("loginAttempts", "0"); // Reset attempts on successful login
+      window.location.assign("/pokemon");
+    } catch (error) {
+      setError(getErrorMessage(error.code));
+      const newAttempts = attempts + 1;
+      if (newAttempts >= MAX_ATTEMPTS) {
+        localStorage.setItem("lockoutEnd", (now + LOCKOUT_TIME).toString());
+        setError("Too many failed attempts. Please try again in 5 minutes.");
+      } else {
+        localStorage.setItem("loginAttempts", newAttempts.toString());
       }
     }
   };
